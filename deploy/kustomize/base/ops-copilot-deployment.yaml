@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ops-copilot-api
+  labels:
+    app: ops-copilot-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ops-copilot-api
+  template:
+    metadata:
+      labels:
+        app: ops-copilot-api
+    spec:
+      containers:
+        - name: api
+          image: ops-copilot/api:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: GATEWAY_URL
+              value: "http://gateway:8001"
+            - name: ORDERS_URL
+              value: "http://orders:8002"
+            - name: PAYMENTS_URL
+              value: "http://payments:8003"
+            - name: LLM_PROVIDER
+              value: "mock"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ops-copilot-api
+spec:
+  selector:
+    app: ops-copilot-api
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000

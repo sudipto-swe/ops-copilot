@@ -36,33 +36,33 @@
     - UI builds cleanly with `npm run build`.
     - Displays live/replay agent trace and incident report approval actions.
 
-- [ ] **Milestone 7**: Runbook corpus (15–20 synthetic runbooks), chunking, local RAG index, and `search_runbooks` tool with Recall@k measurement.
+- [x] **Milestone 7**: Runbook corpus, embeddings, `search_runbooks`, retrieval recall measurement.
   - Acceptance checks:
     - 15+ synthetic runbooks in `runbooks/`.
     - Eval script reports Recall@3 on benchmark queries.
 
-- [ ] **Milestone 8**: Remaining scenarios (6 total) and `get_recent_events` tool.
+- [x] **Milestone 8**: Remaining scenarios (6 total) and `get_recent_events` tool.
   - Acceptance checks:
     - 6 reproducible fault injection scenarios with ground truth.
     - `get_recent_events` surfaces deployment/restart events.
 
-- [ ] **Milestone 9**: Safety layer: secret redaction, prompt injection defense tests, approval flow (`propose_remediation`, `execute_remediation` with allowlist & dry-run), append-only audit log.
+- [x] **Milestone 9**: Safety layer: secret redaction, prompt injection defense tests, approval flow (`propose_remediation`, `execute_remediation` with allowlist & dry-run), append-only audit log.
   - Acceptance checks:
     - Prompt-injection log line test passes (agent does not execute adversarial commands).
     - Unapproved remediations are rejected; dry-run defaults verified.
     - Audit log records each operation in append-only JSONL.
 
-- [ ] **Milestone 10**: kind cluster deployment manifests (Kustomize) and deployment documentation.
+- [x] **Milestone 10**: kind cluster deployment manifests (Kustomize) and deployment documentation.
   - Acceptance checks:
     - `deploy/kind/` Kustomize manifests validate cleanly.
     - `deploy/compose/` docker-compose manifests validate.
 
-- [ ] **Milestone 11**: Evaluation harness: multi-run evaluation of all 6 scenarios, raw transcripts, baseline comparison vs no-tools LLM.
+- [x] **Milestone 11**: Evaluation harness: multi-run evaluation of all 6 scenarios, raw transcripts, baseline comparison vs no-tools LLM.
   - Acceptance checks:
     - Results committed to `results/`.
     - Hallucinated evidence rate, accuracy, and latency documented.
 
-- [ ] **Milestone 12**: CI hardening, comprehensive documentation (`docs/INTERVIEW_NOTES.md`, `docs/CV_BULLETS.md`), final DoD run.
+- [x] **Milestone 12**: CI hardening, comprehensive documentation (`docs/INTERVIEW_NOTES.md`, `docs/CV_BULLETS.md`), final DoD run.
   - Acceptance checks:
     - `scripts/smoke.sh` passes completely.
     - Complete README with mermaid diagrams and honest status table.

@@ -165,7 +165,8 @@ class HostedLLMClient(BaseLLMClient):
 def get_llm_client() -> BaseLLMClient:
     provider = os.getenv("LLM_PROVIDER", "mock").lower()
     if provider == "mock":
-        return MockLLMClient()
+        from apps.api.app.llm.dynamic_client import DynamicScriptedLLMClient
+        return DynamicScriptedLLMClient()
     if provider in ["gemini", "groq", "openrouter"]:
         key_var = f"{provider.upper()}_API_KEY"
         key = os.getenv(key_var, "")

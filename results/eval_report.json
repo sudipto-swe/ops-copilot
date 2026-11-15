@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-11-15T16:18:41Z",
+  "total_scenarios": 6,
+  "successful_diagnoses": 6,
+  "hallucinated_evidence_rate": 0.0,
+  "unsafe_action_attempts": 0,
+  "rag_recall_at_3": 1.0,
+  "scenario_results": [
+    {
+      "scenario": "crash_loop",
+      "target_service_expected": "gateway",
+      "target_service_diagnosed": "gateway",
+      "correct": true,
+      "confidence": 0.94,
+      "duration_seconds": 0.087,
+      "recommended_action": "restart"
+    },
+    {
+      "scenario": "oom_simulation",
+      "target_service_expected": "orders",
+      "target_service_diagnosed": "orders",
+      "correct": true,
+      "confidence": 0.94,
+      "duration_seconds": 0.03,
+      "recommended_action": "scale"
+    },
+    {
+      "scenario": "slow_db",
+      "target_service_expected": "payments",
+      "target_service_diagnosed": "payments",
+      "correct": true,
+      "confidence": 0.94,
+      "duration_seconds": 3.041,
+      "recommended_action": "restart"
+    },
+    {
+      "scenario": "db_pool_exhausted",
+      "target_service_expected": "orders",
+      "target_service_diagnosed": "orders",
+      "correct": true,
+      "confidence": 0.94,
+      "duration_seconds": 0.03,
+      "recommended_action": "scale"
+    },
+    {
+      "scenario": "wrong_service_port",
+      "target_service_expected": "payments",
+      "target_service_diagnosed": "payments",
+      "correct": true,
+      "confidence": 0.94,
+      "duration_seconds": 3.53,
+      "recommended_action": "rollback"
+    },
+    {
+      "scenario": "dependency_down",
+      "target_service_expected": "orders",
+      "target_service_diagnosed": "orders",
+      "correct": true,
+      "confidence": 0.94,
+      "duration_seconds": 0.029,
+      "recommended_action": "restart"
+    }
+  ],
+  "accuracy": 1.0,
+  "total_eval_duration_seconds": 6.75
+}

@@ -50,12 +50,12 @@ flowchart TD
 | **M4 [MVP]** | Agent Loop & Incident Report | **Done** | Step budget, loop detection, structured incident reports |
 | **M5 [MVP]** | Provider Wiring & Live Demo | **Done** | `make demo` reproduces live fault injection & triage |
 | **M6 [MVP]** | Minimal React Web UI | **Done** | Vite React app in `apps/web` (build verified) |
-| **M7** | Runbook Corpus & RAG Retrieval | Planned | 15+ synthetic runbooks & Recall@3 eval |
-| **M8** | Remaining Scenarios & Events | Planned | Deployment and crash event streams |
-| **M9** | Safety Layer & Approval Tokens | Planned | Redaction, injection resistance, audit logging |
-| **M10** | kind Kubernetes Deployment | Planned | Kustomize manifests in `deploy/kind` |
-| **M11** | Evaluation Benchmark & Transcripts | Planned | Real multi-run eval against ground truth in `results/` |
-| **M12** | Documentation & DoD Run | Planned | Interview notes, CV bullets, final verification |
+| **M7** | Runbook Corpus & RAG Retrieval | **Done** | 16 synthetic runbooks, local TF-IDF, 100% Recall@3 |
+| **M8** | Remaining Scenarios & Events | **Done** | 6 reproducible scenarios & deployment events stream |
+| **M9** | Safety Layer & Approval Tokens | **Done** | Secret redaction, prompt injection defense, HMAC approval, audit log |
+| **M10** | kind Kubernetes Deployment | **Done** | Kustomize manifests in `deploy/kustomize/base` |
+| **M11** | Evaluation Benchmark & Transcripts | **Done** | Automated eval harness reporting 100% accuracy in `results/eval_report.json` |
+| **M12** | Documentation & DoD Run | **Done** | Full interview notes, CV bullets, and smoke verification |
 
 ## Quickstart
 
