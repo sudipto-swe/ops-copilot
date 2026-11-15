@@ -20,7 +20,7 @@
     - Tools `list_services`, `get_service_status`, `get_logs`, `query_metrics` return structured JSON.
     - Pytest suite tests each tool with positive & edge case scenarios.
 
-- [ ] **Milestone 4 [MVP]**: Agent loop with `mock` LLM (deterministic tool-call sequences) and structured incident report output.
+- [x] **Milestone 4 [MVP]**: Agent loop with `mock` LLM (deterministic tool-call sequences) and structured incident report output.
   - Acceptance checks:
     - Agent executes step budget, loop detection, and structured scratchpad.
     - Generates incident report citing exact log lines and metric values.
