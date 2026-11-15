@@ -31,7 +31,7 @@
     - `make demo` injects fault, runs agent diagnosis, prints verified incident report.
     - Zero hallucinated evidence rate verified programmatically.
 
-- [ ] **Milestone 6 [MVP]**: Minimal Web UI (React/Vite) showing real-time agent steps, tool calls, and incident report; README status table.
+- [x] **Milestone 6 [MVP]**: Minimal Web UI (React/Vite) showing real-time agent steps, tool calls, and incident report; README status table.
   - Acceptance checks:
     - UI builds cleanly with `npm run build`.
     - Displays live/replay agent trace and incident report approval actions.
