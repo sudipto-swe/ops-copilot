@@ -19,7 +19,7 @@
 
 ## 🌐 Live Online Demo
 The application is live and publicly accessible:
-👉 **[https://paperbacks-nation-periods-lock.trycloudflare.com](https://paperbacks-nation-periods-lock.trycloudflare.com)**
+👉 **[https://middle-royal-cellular-contrary.trycloudflare.com](https://middle-royal-cellular-contrary.trycloudflare.com)**
 
 ---
 
