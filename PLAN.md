@@ -15,7 +15,7 @@
     - `python3 -m scripts.inject_fault --scenario slow_db` injects latency.
     - Reset script restores normal operations.
 
-- [ ] **Milestone 3 [MVP]**: MCP server with read-only tools and unit tests.
+- [x] **Milestone 3 [MVP]**: MCP server with read-only tools and unit tests.
   - Acceptance checks:
     - Tools `list_services`, `get_service_status`, `get_logs`, `query_metrics` return structured JSON.
     - Pytest suite tests each tool with positive & edge case scenarios.
