@@ -72,3 +72,8 @@ make demo
 # 4. Run tests
 make test
 ```
+
+## Live Public Online Demo
+The application is live and publicly accessible over HTTPS via Cloudflare Tunnel:
+👉 **[https://paperbacks-nation-periods-lock.trycloudflare.com](https://paperbacks-nation-periods-lock.trycloudflare.com)**
+*(Includes full interactive scenario trigger, autonomous agent scratchpad reasoning steps, verified evidence citations, and human-in-the-loop remediation).*
