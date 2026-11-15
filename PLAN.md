@@ -26,7 +26,7 @@
     - Generates incident report citing exact log lines and metric values.
     - Unit tests verify deterministic agent run.
 
-- [ ] **Milestone 5 [MVP]**: Real LLM provider wiring (`mock`, `gemini`, `groq`, etc.) & end-to-end incident diagnosis via `make demo`.
+- [x] **Milestone 5 [MVP]**: Real LLM provider wiring (`mock`, `gemini`, `groq`, etc.) & end-to-end incident diagnosis via `make demo`.
   - Acceptance checks:
     - `make demo` injects fault, runs agent diagnosis, prints verified incident report.
     - Zero hallucinated evidence rate verified programmatically.
