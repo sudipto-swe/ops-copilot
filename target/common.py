@@ -65,8 +65,11 @@ def create_base_app(service_name: str) -> FastAPI:
             import asyncio
             await asyncio.sleep(app.state.latency_ms / 1000.0)
 
-        # Simulating crash/error if in error fault state
-        if getattr(app.state, "fault_status", "healthy") == "crash_loop":
+        # Simulating crash/error if in error fault state (except for management/health endpoints)
+        if (
+            getattr(app.state, "fault_status", "healthy") == "crash_loop"
+            and request.url.path not in ["/simulate_fault", "/metrics"]
+        ):
             logger.error(
                 "Fatal startup or runtime exception in core engine",
                 extra={"service": service_name, "request_id": req_id},

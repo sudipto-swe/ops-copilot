@@ -1,0 +1,66 @@
+scenarios:
+  crash_loop:
+    name: "Crash loop from bad environment variable / startup failure"
+    service: "gateway"
+    fault_type: "crash_loop"
+    ground_truth_root_cause: "Gateway service is in a crash loop due to fatal runtime configuration exception"
+    symptoms:
+      - "Gateway /health returns HTTP 500"
+      - "Gateway logs show 'Fatal startup or runtime exception in core engine'"
+    recommended_action: "restart"
+    target_service: "gateway"
+
+  oom_simulation:
+    name: "OOM kill from tight memory limit"
+    service: "orders"
+    fault_type: "oom_simulation"
+    ground_truth_root_cause: "Orders service OOM killed when memory exceeded container cgroup limit"
+    symptoms:
+      - "Orders service fails during order creation"
+      - "Log: 'Process memory exceeded cgroup quota (limit 128MB, current 129MB). OOMKilled invoked.'"
+    recommended_action: "scale"
+    target_service: "orders"
+
+  slow_db:
+    name: "Slow database query latency spike"
+    service: "payments"
+    fault_type: "slow_db"
+    ground_truth_root_cause: "High latency in payments database ledger queries exceeding SLA threshold (>3000ms)"
+    symptoms:
+      - "Payments service response times degraded"
+      - "Log: 'Slow query detected: SELECT pg_sleep(3.5) on payment_ledger taking > 3000ms'"
+    recommended_action: "restart"
+    target_service: "payments"
+
+  db_pool_exhausted:
+    name: "Database connection pool exhaustion"
+    service: "orders"
+    fault_type: "db_connection_pool_exhausted"
+    ground_truth_root_cause: "Connection pool exhausted (max_connections=20) causing HTTP 503 errors"
+    symptoms:
+      - "Orders creation returns 503 Service Unavailable"
+      - "Log: 'FATAL: could not obtain connection from pool within 5000ms: pool exhausted'"
+    recommended_action: "scale"
+    target_service: "orders"
+
+  wrong_service_port:
+    name: "Wrong internal service port mismatch"
+    service: "payments"
+    fault_type: "wrong_service_port"
+    ground_truth_root_cause: "Payment backend failed to bind on internal port 8003 after deployment"
+    symptoms:
+      - "Payment processing returns 502 Bad Gateway"
+      - "Log: 'Connection refused: payment backend failed to bind on internal port 8003'"
+    recommended_action: "rollback"
+    target_service: "payments"
+
+  dependency_down:
+    name: "Downstream dependency orders service down"
+    service: "orders"
+    fault_type: "crash_loop"
+    ground_truth_root_cause: "Orders dependency down causing cascading failures in API Gateway checkout endpoint"
+    symptoms:
+      - "Gateway reports orders downstream error"
+      - "Checkout fails with downstream 502"
+    recommended_action: "restart"
+    target_service: "orders"

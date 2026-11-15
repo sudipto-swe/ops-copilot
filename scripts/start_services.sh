@@ -16,16 +16,16 @@ if [ ! -f "$PYTHON" ]; then
     PYTHON="python3"
 fi
 
-$PYTHON -m uvicorn target.gateway.main:app --host 127.0.0.1 --port 8001 > logs/gateway.log 2>&1 &
+setsid $PYTHON -m uvicorn target.gateway.main:app --host 127.0.0.1 --port 8001 > logs/gateway.log 2>&1 &
 echo $! > .pids/gateway.pid
 
-$PYTHON -m uvicorn target.orders.main:app --host 127.0.0.1 --port 8002 > logs/orders.log 2>&1 &
+setsid $PYTHON -m uvicorn target.orders.main:app --host 127.0.0.1 --port 8002 > logs/orders.log 2>&1 &
 echo $! > .pids/orders.pid
 
-$PYTHON -m uvicorn target.payments.main:app --host 127.0.0.1 --port 8003 > logs/payments.log 2>&1 &
+setsid $PYTHON -m uvicorn target.payments.main:app --host 127.0.0.1 --port 8003 > logs/payments.log 2>&1 &
 echo $! > .pids/payments.pid
 
-$PYTHON -m uvicorn apps.api.app.main:app --host 127.0.0.1 --port 8000 > logs/api.log 2>&1 &
+setsid $PYTHON -m uvicorn apps.api.app.main:app --host 127.0.0.1 --port 8000 > logs/api.log 2>&1 &
 echo $! > .pids/api.pid
 
 echo "Waiting for services to be ready..."

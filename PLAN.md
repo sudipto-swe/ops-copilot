@@ -8,7 +8,7 @@
     - Services emit structured JSON logs and Prometheus `/metrics`.
     - Unit tests pass; `make test` succeeds.
 
-- [ ] **Milestone 2 [MVP]**: Fault injector and 3 initial reproducible scenarios with ground truth (`eval/scenarios.yaml`).
+- [x] **Milestone 2 [MVP]**: Fault injector and 3 initial reproducible scenarios with ground truth (`eval/scenarios.yaml`).
   - Acceptance checks:
     - `python3 -m scripts.inject_fault --scenario crash_loop` triggers target failure.
     - `python3 -m scripts.inject_fault --scenario oom_simulation` triggers memory failure.
