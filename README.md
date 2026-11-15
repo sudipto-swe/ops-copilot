@@ -17,9 +17,11 @@
 
 ---
 
-## 🌐 Live Online Demo
-The application is live and publicly accessible:
-👉 **[https://middle-royal-cellular-contrary.trycloudflare.com](https://middle-royal-cellular-contrary.trycloudflare.com)**
+## 🌐 Permanent 24/7 Live Demo
+The application is deployed permanently online:
+👉 **[https://sudipto-swe.github.io/ops-copilot/](https://sudipto-swe.github.io/ops-copilot/)**
+
+*(Hosted 24/7 on GitHub Pages with instant interactive scenario triggering, real-time agent reasoning steps, verified log/metric citations, and human-in-the-loop remediation).*
 
 ---
 
