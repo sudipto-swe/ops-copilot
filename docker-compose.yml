@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: target/gateway/Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - ORDERS_URL=http://orders:8002
+      - PAYMENTS_URL=http://payments:8003
+    depends_on:
+      - orders
+      - payments
+
+  orders:
+    build:
+      context: .
+      dockerfile: target/orders/Dockerfile
+    ports:
+      - "8002:8002"
+
+  payments:
+    build:
+      context: .
+      dockerfile: target/payments/Dockerfile
+    ports:
+      - "8003:8003"
+
+  ops-api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GATEWAY_URL=http://gateway:8001
+      - ORDERS_URL=http://orders:8002
+      - PAYMENTS_URL=http://payments:8003
+      - LLM_PROVIDER=mock
+    depends_on:
+      - gateway
+      - orders
+      - payments
